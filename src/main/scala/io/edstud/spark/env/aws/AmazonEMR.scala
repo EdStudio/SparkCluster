@@ -21,12 +21,7 @@ import io.edstud.spark.env.ClusterProvider
     Max Instance Count: 20
     Max Instance Group: 50
     Remarks: TODO - For eu-central-1 region, adjust the bucket name to s3://eu-central-1.support.elasticmapreduce/
-    https://github.com/awslabs/emr-bootstrap-actions/blob/master/spark/config.file
-*/
-
-/*
-    getNormalizedInstanceHours(): Int
-    getStatus(): ClusterStatus
+    Spark Version: https://github.com/awslabs/emr-bootstrap-actions/blob/master/spark/config.file
 */
 
 class AmazonEMR (credentials: AWSCredentials) {
@@ -96,7 +91,7 @@ class AmazonEMR (credentials: AWSCredentials) {
     }
 
     def modifyInstanceGroups(id: String, groupId: String, count: Int): Boolean = {
-        var result: Boolean = false
+        var result: Boolean = true
 
         try {
 
@@ -117,7 +112,7 @@ class AmazonEMR (credentials: AWSCredentials) {
 
     def terminateCluster(id: String): Boolean = {
 
-        var result: Boolean = false
+        var result: Boolean = true
 
         try {
 
